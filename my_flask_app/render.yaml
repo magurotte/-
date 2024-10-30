@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: my-flask-app
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    autoDeploy: true
+    pullRequestPreviewsEnabled: true
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        value: "your_secret_key_value"
+
