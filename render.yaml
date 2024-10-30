@@ -1,0 +1,14 @@
+services:
+  - type: web                           # サービスの種類を指定
+    name: my-flask-app                   # アプリ名（任意の名前に変更可能）
+    env: python                          # 環境をPythonに設定
+    plan: free                           # 無料プラン
+    buildCommand: "pip install -r requirements.txt"  # 依存関係のインストール
+    startCommand: "gunicorn app:app"     # アプリ開始のコマンド
+    autoDeploy: true                     # 自動デプロイを有効化
+    pullRequestPreviewsEnabled: true     # プルリクエストプレビューを有効化
+    envVars:                             # 環境変数
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY                  # Flaskの秘密鍵などの設定
+        value: "your_secret_key_value"   # 適切な値を設定
