@@ -1,0 +1,6 @@
+# Windowsの特定のディレクトリを無視
+AppData/
+Desktop/
+Downloads/
+Documents/
+Videos/
